@@ -24,12 +24,13 @@
       font-family: 'Nunito', sans-serif;
       color: #1a2e35;
       overflow-x: hidden;
+      padding-top: 68px; /* offset for fixed header */
     }
 
     h1, h2, h3, h4 { font-family: 'Fredoka One', cursive; }
 
     /* ── UTILS ── */
-    .inner { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+    .inner { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.2rem, 5%, 3rem); }
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -61,22 +62,112 @@
 
     /* ── BUTTONS ── */
     .btn {
-      display: inline-block;
-      padding: .75rem 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .7rem 1.8rem;
+      min-width: 160px;
+      height: 48px;
       border-radius: 50px;
       font-family: 'Nunito', sans-serif;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: .95rem;
       cursor: pointer;
       text-decoration: none;
-      transition: transform .2s, box-shadow .2s;
-      border: 3px solid transparent;
+      transition: transform .2s, box-shadow .2s, background .2s;
+      border: 2.5px solid transparent;
+      white-space: nowrap;
     }
-    .btn:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
-    .btn-teal   { background: var(--teal); color: #fff; border-color: var(--teal); }
-    .btn-yellow { background: var(--yellow); color: #2D2D2D; border-color: var(--yellow); }
-    .btn-outline-white { background: #fff; color: var(--teal); border-color: var(--teal); }
-    .btn-outline-teal  { background: transparent; color: var(--teal); border-color: var(--teal); }
+    .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+    .btn-teal         { background: var(--teal); color: #fff; border-color: var(--teal); }
+    .btn-yellow       { background: var(--yellow); color: #2D2D2D; border-color: var(--yellow); }
+    .btn-outline-white{ background: #fff; color: var(--teal); border-color: var(--teal); }
+    .btn-outline-teal { background: transparent; color: var(--teal); border-color: var(--teal); }
+
+    /* ════════════════════════════
+       FIXED HEADER / NAV
+    ════════════════════════════ */
+    #site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: #fff;
+      border-bottom: 2px solid #e8f4f4;
+      height: 68px;
+      display: flex;
+      align-items: center;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1.2rem, 5%, 3rem);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .header-logo-icon { font-size: 1.7rem; line-height: 1; }
+    .header-logo-text {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      color: var(--teal);
+      line-height: 1.2;
+    }
+    .header-logo-text small {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      color: #888;
+      letter-spacing: .03em;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: .2rem;
+      list-style: none;
+    }
+    .header-nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .85rem;
+      color: #444;
+      padding: .4rem .7rem;
+      border-radius: 8px;
+      transition: color .2s, background .2s;
+      white-space: nowrap;
+    }
+    .header-nav a:hover { color: var(--teal); background: #f0fafa; }
+    .header-nav .nav-cta a {
+      background: var(--teal);
+      color: #fff;
+      padding: .45rem 1rem;
+      border-radius: 50px;
+    }
+    .header-nav .nav-cta a:hover { background: var(--teal-d); }
+    /* hamburger (mobile) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: .4rem;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2.5px;
+      background: var(--dark); border-radius: 2px;
+      transition: .3s;
+    }
 
     /* ════════════════════════════
        SECTION 1 — HERO
@@ -86,13 +177,13 @@
       padding: 0;
       position: relative;
       overflow: hidden;
-      min-height: 100vh;
+      min-height: calc(100vh - 68px);
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
     .hero-photo {
       position: relative;
-      min-height: 100vh;
+      min-height: calc(100vh - 68px);
       overflow: hidden;
     }
     .hero-photo .placeholder {
@@ -106,7 +197,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 5%;
+      padding: 60px clamp(1.5rem, 5%, 3rem);
       position: relative;
     }
 
@@ -167,10 +258,10 @@
     ════════════════════════════ */
     #how {
       background: var(--teal);
-      padding: 80px 5%;
+      padding: 72px 0;
       color: #fff;
     }
-    #how h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 1.2rem; }
+    #how h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 1.2rem; }
     #how p  { font-size: 1rem; line-height: 1.8; opacity: .95; }
     .how-footer-box {
       margin-top: 2rem;
@@ -186,9 +277,9 @@
     ════════════════════════════ */
     #activity {
       background: var(--yellow);
-      padding: 80px 5%;
+      padding: 72px 0;
     }
-    #activity h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #2D2D2D; margin-bottom: 1rem; }
+    #activity h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 1rem; }
     #activity p  { font-size: 1rem; line-height: 1.8; color: #2D2D2D; margin-bottom: 1.4rem; }
     .activity-subtitle {
       font-family: 'Fredoka One', cursive;
@@ -229,13 +320,13 @@
     ════════════════════════════ */
     #stories {
       background: var(--blue);
-      padding: 80px 5%;
+      padding: 72px 0;
     }
     #stories h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
       text-align: center;
       color: #2D2D2D;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .stories-grid {
       display: grid;
@@ -276,7 +367,7 @@
     ════════════════════════════ */
     #donate {
       background: var(--teal);
-      padding: 80px 5%;
+      padding: 72px 0;
       color: #fff;
     }
     .donate-left { position: relative; }
@@ -299,7 +390,7 @@
     .float-deco:nth-child(4) { top: 50%; left: -20px; animation-delay: 1.5s; }
 
     #donate .small-badge { font-size: .8rem; font-weight: 800; opacity: .8; margin-bottom: .7rem; }
-    #donate h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: .5rem; }
+    #donate h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: .5rem; }
     #donate .subtitle { font-size: 1rem; opacity: .9; margin-bottom: 1.6rem; }
     .donate-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
     .or-text { font-size: .9rem; opacity: .8; margin-bottom: .8rem; }
@@ -317,9 +408,9 @@
     ════════════════════════════ */
     #farm {
       background: var(--yellow);
-      padding: 80px 5%;
+      padding: 72px 0;
     }
-    #farm h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #2D2D2D; margin-bottom: 1.2rem; }
+    #farm h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 1.2rem; }
     #farm p  { font-size: 1rem; line-height: 1.8; color: #2D2D2D; }
 
     /* ════════════════════════════
@@ -327,10 +418,10 @@
     ════════════════════════════ */
     #stats {
       background: var(--blue);
-      padding: 80px 5%;
+      padding: 72px 0;
       text-align: center;
     }
-    #stats h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #2D2D2D; margin-bottom: 2.5rem; }
+    #stats h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 2rem; }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -359,9 +450,9 @@
     ════════════════════════════ */
     #elderly {
       background: #fff;
-      padding: 80px 5%;
+      padding: 72px 0;
     }
-    #elderly h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #2D2D2D; margin-bottom: 1.2rem; }
+    #elderly h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 1.2rem; }
     #elderly p  { font-size: 1rem; line-height: 1.8; color: #2D2D2D; }
     .emoji-grid {
       display: grid;
@@ -395,11 +486,11 @@
     }
     .contact-left {
       background: var(--teal);
-      padding: 80px 5%;
+      padding: 72px clamp(1.5rem, 5%, 3rem);
       color: #fff;
       display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
     }
-    .contact-left h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 2rem; }
+    .contact-left h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin-bottom: 2rem; }
     .polaroid {
       background: #fff;
       border-radius: 4px;
@@ -419,10 +510,10 @@
 
     .contact-right {
       background: var(--yellow);
-      padding: 80px 5%;
+      padding: 72px clamp(1.5rem, 5%, 3rem);
       display: flex; flex-direction: column; justify-content: center;
     }
-    .contact-right h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 2rem; }
+    .contact-right h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); color: #2D2D2D; margin-bottom: 2rem; }
     .contact-item {
       display: flex; align-items: center; gap: 1rem;
       margin-bottom: 1.2rem;
@@ -453,28 +544,98 @@
     /* ── FOOTER ── */
     footer {
       background: var(--dark);
-      color: #aaa;
-      text-align: center;
-      padding: 1.4rem 5%;
+      color: #b0bec5;
       font-size: .9rem;
     }
-    footer span { color: #fff; font-weight: 700; }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px clamp(1.2rem, 5%, 3rem) 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-brand .footer-logo {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.2rem;
+      color: #fff;
+      display: flex; align-items: center; gap: .5rem;
+      margin-bottom: .6rem;
+    }
+    .footer-brand p { font-size: .85rem; line-height: 1.6; color: #90a4ae; }
+    .footer-col h4 {
+      font-family: 'Fredoka One', cursive;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: .8rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .5rem; font-size: .85rem; }
+    .footer-col ul li a { color: #90a4ae; text-decoration: none; }
+    .footer-col ul li a:hover { color: var(--teal); }
+    .footer-contact li { display: flex; align-items: flex-start; gap: .5rem; }
+    .footer-contact li span { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      text-align: center;
+      padding: 1rem clamp(1.2rem, 5%, 3rem);
+      font-size: .8rem;
+      color: #607d8b;
+    }
+    .footer-bottom strong { color: #90a4ae; }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .header-nav { display: none; gap: 0; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 2px solid #e8f4f4; padding: 1rem 1.5rem; }
+      .header-nav.open { display: flex; }
+      .header-nav a { padding: .6rem .5rem; font-size: .95rem; }
+      .hamburger { display: flex; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 768px) {
       .two-col, #contact { grid-template-columns: 1fr; }
-      .stories-grid, .stats-grid, .goal-cards { grid-template-columns: 1fr; }
-      .contact-left, .contact-right { padding: 60px 8%; }
+      .stories-grid, .stats-grid { grid-template-columns: 1fr; }
+      .goal-cards { grid-template-columns: 1fr 1fr; }
+      .contact-left { padding: 56px 1.5rem; }
+      .contact-right { padding: 56px 1.5rem; }
       #hero { grid-template-columns: 1fr; min-height: unset; }
-      .hero-photo { min-height: 300px; }
-      .hero-content { padding: 50px 8%; }
+      .hero-photo { min-height: 260px; }
+      .hero-content { padding: 44px 1.5rem; }
+      #how, #activity, #stories, #donate, #farm, #stats, #elderly { padding: 56px 0; }
     }
     @media (max-width: 520px) {
       .goal-cards { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .btn { min-width: 130px; font-size: .88rem; }
     }
   </style>
 </head>
 <body>
+
+<!-- ═══════════════════════════
+     FIXED HEADER
+════════════════════════════ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="#">
+      <span class="header-logo-icon">🐾</span>
+      <div class="header-logo-text">
+        Фонд «Хает Мерапот»
+        <small>חיות מרפאות</small>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="header-nav" id="header-nav">
+      <li><a href="#how">Как мы помогаем</a></li>
+      <li><a href="#stories">Истории</a></li>
+      <li><a href="#stats">Цифры</a></li>
+      <li><a href="#elderly">Для пожилых</a></li>
+      <li class="nav-cta"><a href="#donate">💛 Пожертвовать</a></li>
+    </ul>
+  </div>
+</header>
 
 <!-- ═══════════════════════════
      SECTION 1 — HERO
@@ -733,7 +894,38 @@
 
 <!-- FOOTER -->
 <footer>
-  © 2024 <span>ФОНД «Хает мерапот» חיות מרפאות</span>
+  <div class="footer-inner">
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-logo">🐾 Фонд «Хает Мерапот»</div>
+      <p>חיות מרפאות<br/>Помогаем тяжелобольным детям и пожилым людям через терапию с животными.</p>
+    </div>
+    <!-- Nav -->
+    <div class="footer-col">
+      <h4>Разделы</h4>
+      <ul>
+        <li><a href="#how">Как мы помогаем</a></li>
+        <li><a href="#activity">Наша деятельность</a></li>
+        <li><a href="#stories">Истории</a></li>
+        <li><a href="#stats">Цифры</a></li>
+        <li><a href="#elderly">Для пожилых</a></li>
+        <li><a href="#donate">Пожертвовать</a></li>
+      </ul>
+    </div>
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <ul class="footer-contact">
+        <li><span>📱</span><a href="https://wa.me/9720503289558" target="_blank">050-3289558 (WhatsApp)</a></li>
+        <li><span>☎️</span><a href="tel:+97237952308">03-7952308</a></li>
+        <li><span>✉️</span><a href="mailto:amuta.olal@gmail.com">amuta.olal@gmail.com</a></li>
+        <li><span>📍</span><span>שוהם 62, רחובות ת.ד 15098</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2024 <strong>ФОНД «Хает мерапот» חיות מרפאות</strong>. Все права защищены.
+  </div>
 </footer>
 
 <script>
@@ -772,6 +964,16 @@
       el.textContent = Math.floor(current).toLocaleString('ru') + suffix;
     }, step);
   }
+
+  /* ── HAMBURGER MENU ── */
+  const hamburger = document.getElementById('hamburger');
+  const headerNav = document.getElementById('header-nav');
+  hamburger.addEventListener('click', () => {
+    headerNav.classList.toggle('open');
+  });
+  headerNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => headerNav.classList.remove('open'));
+  });
 
   /* observe stat cards specifically */
   document.querySelectorAll('.stat-card').forEach(card => {
