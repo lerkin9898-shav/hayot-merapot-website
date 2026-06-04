@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Фонд «Хает Мерапот» חיות מרפאות</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="logo.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -27,7 +28,7 @@
       padding-top: 68px; /* offset for fixed header */
     }
 
-    h1, h2, h3, h4 { font-family: 'Fredoka One', cursive; }
+    h1, h2, h3, h4 { font-family: 'Nunito', sans-serif; font-weight: 800; }
 
     /* ── UTILS ── */
     .inner { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.2rem, 5%, 3rem); }
@@ -116,7 +117,7 @@
     }
     .header-logo-icon { font-size: 1.7rem; line-height: 1; }
     .header-logo-text {
-      font-family: 'Fredoka One', cursive;
+      font-family: 'Nunito', sans-serif;
       font-size: 1rem;
       color: var(--teal);
       line-height: 1.2;
@@ -282,7 +283,7 @@
     #activity h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 1rem; }
     #activity p  { font-size: 1rem; line-height: 1.8; color: #2D2D2D; margin-bottom: 1.4rem; }
     .activity-subtitle {
-      font-family: 'Fredoka One', cursive;
+      font-family: 'Nunito', sans-serif;
       font-size: 1.3rem;
       color: #2D2D2D;
       margin-bottom: 1.2rem;
@@ -437,7 +438,7 @@
     .stat-card:hover { transform: translateY(-6px); }
     .stat-label { font-size: .78rem; font-weight: 800; letter-spacing: .08em; color: #888; margin-bottom: .6rem; text-transform: uppercase; }
     .stat-number {
-      font-family: 'Fredoka One', cursive;
+      font-family: 'Nunito', sans-serif;
       font-size: 3.2rem;
       color: #4ABFBF;
       line-height: 1;
@@ -543,8 +544,8 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--dark);
-      color: #b0bec5;
+      background: var(--coral);
+      color: #fff;
       font-size: .9rem;
     }
     .footer-inner {
@@ -556,33 +557,35 @@
       gap: 2rem;
     }
     .footer-brand .footer-logo {
-      font-family: 'Fredoka One', cursive;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
       font-size: 1.2rem;
       color: #fff;
       display: flex; align-items: center; gap: .5rem;
       margin-bottom: .6rem;
     }
-    .footer-brand p { font-size: .85rem; line-height: 1.6; color: #90a4ae; }
+    .footer-brand p { font-size: .85rem; line-height: 1.6; color: rgba(255,255,255,.85); }
     .footer-col h4 {
-      font-family: 'Fredoka One', cursive;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
       color: #fff;
       font-size: 1rem;
       margin-bottom: .8rem;
     }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: .5rem; font-size: .85rem; }
-    .footer-col ul li a { color: #90a4ae; text-decoration: none; }
-    .footer-col ul li a:hover { color: var(--teal); }
+    .footer-col ul li a { color: rgba(255,255,255,.85); text-decoration: none; }
+    .footer-col ul li a:hover { color: #fff; text-decoration: underline; }
     .footer-contact li { display: flex; align-items: flex-start; gap: .5rem; }
     .footer-contact li span { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.08);
+      border-top: 1px solid rgba(255,255,255,.3);
       text-align: center;
       padding: 1rem clamp(1.2rem, 5%, 3rem);
       font-size: .8rem;
-      color: #607d8b;
+      color: rgba(255,255,255,.8);
     }
-    .footer-bottom strong { color: #90a4ae; }
+    .footer-bottom strong { color: #fff; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -618,11 +621,7 @@
 <header id="site-header">
   <div class="header-inner">
     <a class="header-logo" href="#">
-      <span class="header-logo-icon">🐾</span>
-      <div class="header-logo-text">
-        Фонд «Хает Мерапот»
-        <small>חיות מרפאות</small>
-      </div>
+      <img src="logo.png" alt="חיות מרפאות" style="height:50px;" />
     </a>
     <button class="hamburger" id="hamburger" aria-label="Меню">
       <span></span><span></span><span></span>
