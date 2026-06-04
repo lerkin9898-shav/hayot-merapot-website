@@ -6,6 +6,17 @@
   <title>Фонд «Хает Мерапот» חיות מרפאות</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" href="logo.png" />
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'ru',
+      includedLanguages: 'he',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -644,6 +655,35 @@
       filter: none;
     }
 
+    /* ── GOOGLE TRANSLATE WIDGET ── */
+    #google_translate_element {
+      display: flex;
+      align-items: center;
+    }
+    #google_translate_element .goog-te-gadget-simple {
+      background: transparent !important;
+      border: 1.5px solid var(--teal) !important;
+      border-radius: 20px !important;
+      padding: .25rem .7rem !important;
+      font-size: .8rem !important;
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 700 !important;
+      color: var(--teal) !important;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    #google_translate_element .goog-te-gadget-simple span,
+    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+      color: var(--teal) !important;
+      font-family: 'Nunito', sans-serif !important;
+      font-size: .8rem !important;
+      font-weight: 700 !important;
+    }
+    #google_translate_element .goog-te-gadget-simple img { display: none !important; }
+    /* hide the "Powered by Google" bar that sometimes appears */
+    .goog-te-banner-frame { display: none !important; }
+    body { top: 0 !important; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .header-nav { display: none; gap: 0; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 2px solid #e8f4f4; padding: 1rem 1.5rem; }
@@ -691,6 +731,7 @@
       <li><a href="#stories">Истории</a></li>
       <li><a href="privacy.html">Конфиденциальность</a></li>
       <li><a href="terms.html">Условия</a></li>
+      <li><div id="google_translate_element"></div></li>
       <li class="nav-cta"><a href="#donate-section">💛 Пожертвовать</a></li>
     </ul>
   </div>
