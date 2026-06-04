@@ -587,6 +587,54 @@
     }
     .footer-bottom strong { color: #fff; }
 
+    /* ════════════════════════════
+       DONATE SECTION
+    ════════════════════════════ */
+    #donate-section {
+      background: #fff;
+      padding: 72px 0;
+      border-top: 1px solid #eee;
+    }
+    .donate-section-inner {
+      max-width: 560px;
+      text-align: center;
+    }
+    #donate-section h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      color: #2D2D2D;
+      margin-bottom: 1.8rem;
+    }
+    .donate-check-label {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      font-size: .97rem;
+      font-weight: 600;
+      color: #2D2D2D;
+      margin-bottom: 1.6rem;
+      cursor: pointer;
+      text-align: left;
+    }
+    .donate-check-label input[type="checkbox"] {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      margin-top: .15rem;
+      accent-color: var(--teal);
+      cursor: pointer;
+    }
+    .donate-check-label a { color: var(--teal); }
+    .donate-main-btn {
+      pointer-events: none;
+      opacity: .4;
+      filter: grayscale(.4);
+      transition: opacity .25s, filter .25s, transform .2s, box-shadow .2s;
+    }
+    .donate-main-btn.enabled {
+      pointer-events: auto;
+      opacity: 1;
+      filter: none;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .header-nav { display: none; gap: 0; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: #fff; border-bottom: 2px solid #e8f4f4; padding: 1rem 1.5rem; }
@@ -604,7 +652,7 @@
       #hero { grid-template-columns: 1fr; min-height: unset; }
       .hero-photo { min-height: 260px; }
       .hero-content { padding: 44px 1.5rem; }
-      #how, #activity, #stories, #donate, #farm, #stats, #elderly { padding: 56px 0; }
+      #how, #activity, #stories, #donate, #farm, #stats, #elderly, #donate-section { padding: 56px 0; }
     }
     @media (max-width: 520px) {
       .goal-cards { grid-template-columns: 1fr; }
@@ -631,7 +679,7 @@
       <li><a href="#stories">Истории</a></li>
       <li><a href="#stats">Цифры</a></li>
       <li><a href="#elderly">Для пожилых</a></li>
-      <li class="nav-cta"><a href="#donate">💛 Пожертвовать</a></li>
+      <li class="nav-cta"><a href="#donate-section">💛 Пожертвовать</a></li>
     </ul>
   </div>
 </header>
@@ -661,7 +709,7 @@
       Мы основали проект «Хает Мерапот», чтобы помочь тяжелобольным детям снова стать здоровыми ❤️ Тем, кому больничные кассы отказывают и тем, кто не может оплатить лечебную терапию. Занятия с животными дают ребёнку шанс быстрее поправиться. Потому что важно исцелять не только тело, но и душу.
     </div>
     <div class="hero-btns">
-      <a href="#donate" class="btn btn-teal">💛 Пожертвовать</a>
+      <a href="#donate-section" class="btn btn-teal">💛 Пожертвовать</a>
       <a href="#contact" class="btn btn-outline-teal">📱 Связаться</a>
     </div>
   </div>
@@ -821,6 +869,20 @@
 </section>
 
 <!-- ═══════════════════════════
+     DONATE SECTION
+════════════════════════════ -->
+<section id="donate-section">
+  <div class="inner donate-section-inner reveal">
+    <h2>Пожертвовать</h2>
+    <label class="donate-check-label">
+      <input type="checkbox" id="donate-agree" />
+      <span>Я ознакомился(-ась) с <a href="#">правилами</a> и принимаю условия пользования</span>
+    </label>
+    <a href="mailto:amuta.olal@gmail.com" class="btn btn-yellow donate-main-btn" id="donate-main-btn" aria-disabled="true">💛 Пожертвовать</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
      SECTION 8 — ELDERLY
 ════════════════════════════ -->
 <section id="elderly">
@@ -908,7 +970,7 @@
         <li><a href="#stories">Истории</a></li>
         <li><a href="#stats">Цифры</a></li>
         <li><a href="#elderly">Для пожилых</a></li>
-        <li><a href="#donate">Пожертвовать</a></li>
+        <li><a href="#donate-section">Пожертвовать</a></li>
       </ul>
     </div>
     <!-- Contact -->
@@ -963,6 +1025,19 @@
       el.textContent = Math.floor(current).toLocaleString('ru') + suffix;
     }, step);
   }
+
+  /* ── DONATE CHECKBOX ── */
+  const donateAgree = document.getElementById('donate-agree');
+  const donateBtn   = document.getElementById('donate-main-btn');
+  donateAgree.addEventListener('change', () => {
+    if (donateAgree.checked) {
+      donateBtn.classList.add('enabled');
+      donateBtn.removeAttribute('aria-disabled');
+    } else {
+      donateBtn.classList.remove('enabled');
+      donateBtn.setAttribute('aria-disabled', 'true');
+    }
+  });
 
   /* ── HAMBURGER MENU ── */
   const hamburger = document.getElementById('hamburger');
