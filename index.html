@@ -114,6 +114,14 @@
       gap: .5rem;
       text-decoration: none;
       flex-shrink: 0;
+      min-width: 200px;
+    }
+    .header-logo-fallback {
+      display: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #2C7A7B;
+      line-height: 1.25;
     }
     .header-logo-icon { font-size: 1.7rem; line-height: 1; }
     .header-logo-text {
@@ -671,7 +679,9 @@
 <header id="site-header">
   <div class="header-inner">
     <a class="header-logo" href="#">
-      <img src="logo.png" alt="חיות מרפאות" style="height:50px;" />
+      <img src="logo.png" alt="חיות מרפאות" style="height:50px;"
+           onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';" />
+      <span class="header-logo-fallback" id="logo-fallback">Фонд «Хает Мерапот» | חיות מרפאות</span>
     </a>
     <button class="hamburger" id="hamburger" aria-label="Меню">
       <span></span><span></span><span></span>
@@ -864,7 +874,7 @@
       <div class="stat-card reveal">
         <div class="stat-label">Взаимопомощь</div>
         <div class="stat-number" data-target="97" data-suffix="%">0</div>
-        <div class="stat-goal">2024 год</div>
+        <div class="stat-goal">2026 год</div>
       </div>
     </div>
   </div>
@@ -987,7 +997,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    © 2024 <strong>ФОНД «Хает мерапот» חיות מרפאות</strong>. Все права защищены.
+    © 2026 <strong>ФОНД «Хает мерапот» חיות מרפאות</strong>. Все права защищены.
   </div>
 </footer>
 
