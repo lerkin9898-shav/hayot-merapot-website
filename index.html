@@ -727,6 +727,60 @@
       .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .btn { min-width: 130px; font-size: .88rem; }
     }
+
+    /* ── VIDEO OVERLAY ── */
+    .video-wrap { position: relative; }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.28);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity .3s;
+      border-radius: 20px;
+    }
+    .video-overlay.hidden { display: none; }
+    .video-play-bubble {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .55rem;
+      background: rgba(220,38,38,0.92);
+      border-radius: 50px;
+      padding: .75rem 1.4rem .75rem 1.1rem;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.35);
+      transition: transform .2s, background .2s;
+    }
+    .video-overlay:hover .video-play-bubble {
+      transform: scale(1.06);
+      background: rgba(185,28,28,0.97);
+    }
+    .video-play-bubble-inner {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+    }
+    .video-play-icon {
+      width: 42px; height: 42px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      color: #dc2626;
+      flex-shrink: 0;
+    }
+    .video-hint {
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: .97rem;
+      margin: 0;
+      white-space: nowrap;
+      letter-spacing: .01em;
+    }
   </style>
 </head>
 <body>
@@ -802,10 +856,18 @@
       </div>
     </div>
     <!-- Right: video -->
-    <div style="border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.18);">
+    <div class="video-wrap" style="border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.18);">
       <video controls style="width:100%;display:block;">
         <source src="images/סרטון 1.MP4" type="video/mp4">
       </video>
+      <div class="video-overlay">
+        <div class="video-play-bubble">
+          <div class="video-play-bubble-inner">
+            <div class="video-play-icon">▶</div>
+            <p class="video-hint">Нажмите для просмотра</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -911,10 +973,18 @@
       <p>Вот Менаше, очаровательный управляющий фермой, рассказывает про хижину с жеребёнком. Объясняет, что жеребята - это животные, которым нужно много тепла и любви, они рождаются очень напуганными по своей природе, чем больше у них контактов с людьми и детьми, тем лучше и безопаснее они растут, и дети всегда общаются более дружелюбно естественным путём с жеребятами, поэтому здесь возникнет здоровая связь.</p>
     </div>
     <!-- Right: video -->
-    <div style="border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.18);">
+    <div class="video-wrap" style="border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.18);">
       <video controls style="width:100%;display:block;">
         <source src="images/סרטון 2 .MP4" type="video/mp4">
       </video>
+      <div class="video-overlay">
+        <div class="video-play-bubble">
+          <div class="video-play-bubble-inner">
+            <div class="video-play-icon">▶</div>
+            <p class="video-hint">Нажмите для просмотра</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -955,7 +1025,7 @@
       <input type="checkbox" id="donate-agree" />
       <span>Я ознакомился(-ась) с <a href="terms.html">правилами</a> и <a href="privacy.html">политикой конфиденциальности</a> и принимаю условия пользования</span>
     </label>
-    <a href="https://tinyurl.com/297tr5s3" target="_blank" class="btn btn-yellow donate-main-btn" id="donate-main-btn" aria-disabled="true">💛 Пожертвовать</a>
+    <a href="https://secure.cardcom.solutions/t/4VZaC5yOA0" target="_blank" class="btn btn-yellow donate-main-btn" id="donate-main-btn" aria-disabled="true">💛 Пожертвовать</a>
   </div>
 </section>
 
@@ -1145,6 +1215,27 @@
       });
     }, { threshold: 0.5 });
     statObs.observe(card);
+  });
+</script>
+
+<script>
+  document.querySelectorAll('.video-wrap').forEach(wrap => {
+    const video = wrap.querySelector('video');
+    const overlay = wrap.querySelector('.video-overlay');
+
+    // הצג פריים מהסרטון כ-thumbnail
+    video.preload = 'metadata';
+    video.addEventListener('loadedmetadata', () => {
+      const t = Math.min(3, video.duration * 0.1);
+      video.currentTime = t;
+    }, { once: true });
+
+    // לחיצה על ה-overlay - הסתר ונגן
+    overlay.addEventListener('click', () => {
+      overlay.classList.add('hidden');
+      video.currentTime = 0;
+      video.play();
+    });
   });
 </script>
 </body>
