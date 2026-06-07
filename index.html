@@ -10,26 +10,22 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --teal:      #2A9D8F;   /* refined — deeper, richer, passes contrast */
-      --teal-d:    #21867A;   /* hover/dark states */
-      --teal-lt:   #E6F7F5;   /* very light teal tint */
-      --honey:     #F4C150;   /* warm honey — replaces harsh neon yellow */
-      --honey-lt:  #FEF5D9;   /* light honey for section backgrounds */
-      --coral:     #E8704F;   /* slightly softer coral */
-      --sky:       #D0EBF7;   /* softer sky blue */
-      --cream:     #FDF8F2;   /* warm cream for "white" sections */
-      --dark:      #1A3530;   /* deep teal-dark for footer / text */
-      --text:      #2D3A38;   /* refined body text */
+      --teal:    #4ABFBF;
+      --teal-d:  #3aa0a0;
+      --yellow:  #F5C842;
+      --coral:   #F07054;
+      --blue:    #B8E0F5;
+      --white:   #FFFFFF;
+      --dark:    #1a2e35;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Nunito', sans-serif;
-      color: var(--text);
+      color: #1a2e35;
       overflow-x: hidden;
       padding-top: 68px; /* offset for fixed header */
-      background: var(--cream);
     }
 
     h1, h2, h3, h4 { font-family: 'Nunito', sans-serif; font-weight: 800; }
@@ -85,7 +81,7 @@
     }
     .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
     .btn-teal         { background: var(--teal); color: #fff; border-color: var(--teal); }
-    .btn-yellow       { background: var(--honey); color: var(--dark); border-color: var(--honey); }
+    .btn-yellow       { background: var(--yellow); color: #2D2D2D; border-color: var(--yellow); }
     .btn-outline-white{ background: #fff; color: var(--teal); border-color: var(--teal); }
     .btn-outline-teal { background: transparent; color: var(--teal); border-color: var(--teal); }
 
@@ -186,7 +182,7 @@
        SECTION 1 — HERO
     ════════════════════════════ */
     #hero {
-      background: var(--cream);
+      background: #fff;
       padding: 0;
       position: relative;
       overflow: hidden;
@@ -234,8 +230,8 @@
 
     .hero-badge {
       display: inline-block;
-      background: var(--teal-lt);
-      color: var(--teal);
+      background: var(--blue);
+      color: var(--dark);
       font-weight: 800;
       font-size: .85rem;
       padding: .35rem 1rem;
@@ -252,17 +248,17 @@
     .hero-tagline {
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--text);
+      color: #555;
       margin-bottom: 1.4rem;
     }
     .hero-blue-box {
-      background: var(--sky);
+      background: var(--blue);
       border-radius: 16px;
       padding: 1.2rem 1.4rem;
       font-size: .97rem;
       line-height: 1.75;
       margin-bottom: 2rem;
-      color: var(--dark);
+      color: #1a2e35;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
@@ -274,8 +270,8 @@
       padding: 72px 0;
       color: #fff;
     }
-    #how h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 1.2rem; color: #fff; }
-    #how p  { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,.92); }
+    #how h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 1.2rem; }
+    #how p  { font-size: 1rem; line-height: 1.8; opacity: .95; }
     .how-footer-box {
       margin-top: 2rem;
       background: rgba(0,0,0,.18);
@@ -289,16 +285,15 @@
        SECTION 3 — ACTIVITY
     ════════════════════════════ */
     #activity {
-      background: var(--honey-lt);
+      background: var(--yellow);
       padding: 72px 0;
     }
-    #activity h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: var(--dark); margin-bottom: 1rem; }
-    #activity p  { font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 1.4rem; }
+    #activity h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 1rem; }
+    #activity p  { font-size: 1rem; line-height: 1.8; color: #2D2D2D; margin-bottom: 1.4rem; }
     .activity-subtitle {
       font-family: 'Nunito', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--teal);
+      font-size: 1.3rem;
+      color: #2D2D2D;
       margin-bottom: 1.2rem;
     }
     .goal-cards {
@@ -323,9 +318,9 @@
       justify-content: flex-start;
       border-top: 4px solid transparent;
     }
-    .goal-card:nth-child(1) { border-top-color: var(--teal); }
-    .goal-card:nth-child(2) { border-top-color: var(--coral); }
-    .goal-card:nth-child(3) { border-top-color: #5BB89A; }
+    .goal-card:nth-child(1) { border-top-color: #4ABFBF; }
+    .goal-card:nth-child(2) { border-top-color: #F07054; }
+    .goal-card:nth-child(3) { border-top-color: #7CC87A; }
     .goal-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,.13); }
     .goal-card .gc-icon { font-size: 2.2rem; margin-bottom: .6rem; }
 
@@ -333,13 +328,13 @@
        SECTION 4 — STORIES
     ════════════════════════════ */
     #stories {
-      background: var(--sky);
+      background: var(--blue);
       padding: 72px 0;
     }
     #stories h2 {
       font-size: clamp(1.7rem, 3vw, 2.4rem);
       text-align: center;
-      color: var(--dark);
+      color: #2D2D2D;
       margin-bottom: 2rem;
     }
     .stories-grid {
@@ -373,20 +368,20 @@
     .story-card:nth-child(1) .story-blob { background: #ffcdd2; animation-delay: 0s; }
     .story-card:nth-child(2) .story-blob { background: #c8e6c9; animation-delay: 2s; }
     .story-card:nth-child(3) .story-blob { background: #fff9c4; animation-delay: 4s; }
-    .story-card h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: .7rem; }
-    .story-card p  { font-size: .9rem; line-height: 1.7; color: #4a5a58; }
+    .story-card h3 { font-size: 1.1rem; color: #2D2D2D; margin-bottom: .7rem; }
+    .story-card p  { font-size: .9rem; line-height: 1.7; color: #555555; }
 
     /* ════════════════════════════
        SECTION 5 — DONATE CTA
     ════════════════════════════ */
     #donate {
-      background: var(--dark);
+      background: var(--teal);
       padding: 72px 0;
       color: #fff;
     }
     .donate-left { position: relative; }
     .donate-placeholder {
-      background: var(--teal);
+      background: var(--teal-d);
       border-radius: 24px;
       aspect-ratio: 4/3;
       display: flex; align-items: center; justify-content: center;
@@ -421,21 +416,21 @@
        SECTION 6 — FARM
     ════════════════════════════ */
     #farm {
-      background: var(--honey-lt);
+      background: var(--yellow);
       padding: 72px 0;
     }
-    #farm h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: var(--dark); margin-bottom: 1.2rem; }
-    #farm p  { font-size: 1rem; line-height: 1.8; color: var(--text); }
+    #farm h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 1.2rem; }
+    #farm p  { font-size: 1rem; line-height: 1.8; color: #2D2D2D; }
 
     /* ════════════════════════════
        SECTION 7 — STATS
     ════════════════════════════ */
     #stats {
-      background: var(--sky);
+      background: var(--blue);
       padding: 72px 0;
       text-align: center;
     }
-    #stats h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: var(--dark); margin-bottom: 2rem; }
+    #stats h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 2rem; }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -453,7 +448,7 @@
     .stat-number {
       font-family: 'Nunito', sans-serif;
       font-size: 3.2rem;
-      color: var(--teal);
+      color: #4ABFBF;
       line-height: 1;
       margin-bottom: .4rem;
     }
@@ -463,11 +458,11 @@
        SECTION 8 — ELDERLY
     ════════════════════════════ */
     #elderly {
-      background: var(--cream);
+      background: #fff;
       padding: 72px 0;
     }
-    #elderly h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: var(--dark); margin-bottom: 1.2rem; }
-    #elderly p  { font-size: 1rem; line-height: 1.8; color: var(--text); }
+    #elderly h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #2D2D2D; margin-bottom: 1.2rem; }
+    #elderly p  { font-size: 1rem; line-height: 1.8; color: #2D2D2D; }
     .emoji-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -484,7 +479,7 @@
     .emoji-cell:nth-child(1)  { background: #ffcdd2; }
     .emoji-cell:nth-child(2)  { background: #c8e6c9; }
     .emoji-cell:nth-child(3)  { background: #fff9c4; }
-    .emoji-cell:nth-child(4)  { background: var(--sky); }
+    .emoji-cell:nth-child(4)  { background: var(--blue); }
     .emoji-cell:nth-child(5)  { background: #f8bbd0; }
     .emoji-cell:nth-child(6)  { background: #d1c4e9; }
     .emoji-cell:nth-child(7)  { background: #b2dfdb; }
@@ -523,11 +518,11 @@
     }
 
     .contact-right {
-      background: var(--honey-lt);
+      background: var(--yellow);
       padding: 72px clamp(1.5rem, 5%, 3rem);
       display: flex; flex-direction: column; justify-content: center;
     }
-    .contact-right h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); color: var(--dark); margin-bottom: 2rem; }
+    .contact-right h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); color: #2D2D2D; margin-bottom: 2rem; }
     .contact-item {
       display: flex; align-items: center; gap: 1rem;
       margin-bottom: 1.2rem;
@@ -540,9 +535,9 @@
       flex-shrink: 0;
       box-shadow: 0 3px 12px rgba(0,0,0,.1);
     }
-    .contact-info { font-size: .97rem; font-weight: 700; color: var(--dark); }
-    .contact-info a { color: var(--dark); text-decoration: none; }
-    .contact-info a:hover { color: var(--teal); text-decoration: underline; }
+    .contact-info { font-size: .97rem; font-weight: 700; color: #2D2D2D; }
+    .contact-info a { color: #2D2D2D; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
 
     /* ── BANK FOOTER ── */
     .bank-footer {
@@ -557,8 +552,8 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--dark);
-      color: #b8ceca;
+      background: var(--coral);
+      color: #fff;
       font-size: .9rem;
     }
     .footer-inner {
@@ -577,37 +572,37 @@
       display: flex; align-items: center; gap: .5rem;
       margin-bottom: .6rem;
     }
-    .footer-brand p { font-size: .85rem; line-height: 1.6; color: #8fbfba; }
+    .footer-brand p { font-size: .85rem; line-height: 1.6; color: rgba(255,255,255,.85); }
     .footer-col h4 {
       font-family: 'Nunito', sans-serif;
       font-weight: 800;
-      color: var(--teal);
+      color: #fff;
       font-size: 1rem;
       margin-bottom: .8rem;
     }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: .5rem; font-size: .85rem; }
-    .footer-col ul li a { color: #8fbfba; text-decoration: none; }
+    .footer-col ul li a { color: rgba(255,255,255,.85); text-decoration: none; }
     .footer-col ul li a:hover { color: #fff; text-decoration: underline; }
     .footer-contact li { display: flex; align-items: flex-start; gap: .5rem; }
     .footer-contact li span { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.1);
+      border-top: 1px solid rgba(255,255,255,.3);
       text-align: center;
       padding: 1rem clamp(1.2rem, 5%, 3rem);
       font-size: .8rem;
-      color: #6a9490;
+      color: rgba(255,255,255,.8);
     }
-    .footer-bottom strong { color: #8fbfba; }
+    .footer-bottom strong { color: #fff; }
 
     /* ════════════════════════════
        DONATE SECTION
     ════════════════════════════ */
     #donate-section {
-      background: var(--cream);
+      background: #FFF9E6;
       padding: 80px 0;
-      border-top: 4px solid var(--honey);
-      box-shadow: inset 0 -6px 20px rgba(0,0,0,.03);
+      border-top: 4px solid #F2C94C;
+      box-shadow: inset 0 -6px 20px rgba(0,0,0,.04);
     }
     .donate-section-inner {
       max-width: 560px;
@@ -708,7 +703,7 @@
 <section id="hero">
   <!-- Left: photo placeholder -->
   <div class="hero-photo">
-    <div class="placeholder" style="background:#C8EAE6;">🧒🐹</div>
+    <div class="placeholder" style="background:#c8f0c8;">🧒🐹</div>
   </div>
 
   <!-- Right: content -->
@@ -748,7 +743,7 @@
     </div>
     <!-- Right: placeholder -->
     <div>
-      <div class="placeholder" style="background:#1E8A80; color:#fff;">🐎</div>
+      <div class="placeholder" style="background:#2d9090; color:#fff;">🐎</div>
     </div>
   </div>
 </section>
@@ -760,7 +755,7 @@
   <div class="inner two-col reveal">
     <!-- Left: placeholder -->
     <div>
-      <div class="placeholder" style="background:#EDD690;">🤝</div>
+      <div class="placeholder" style="background:#e8b820;">🤝</div>
     </div>
     <!-- Right: text + cards -->
     <div>
@@ -855,7 +850,7 @@
     </div>
     <!-- Right: placeholder -->
     <div>
-      <div class="placeholder" style="background:#D4A843;">🐣</div>
+      <div class="placeholder" style="background:#c8960a;">🐣</div>
     </div>
   </div>
 </section>
