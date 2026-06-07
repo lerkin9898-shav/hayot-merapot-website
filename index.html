@@ -768,9 +768,13 @@
       background: #fff;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-      color: #4ABFBF;
+      font-size: 1.4rem;
       flex-shrink: 0;
+      animation: fingerBounce 0.8s ease-in-out infinite;
+    }
+    @keyframes fingerBounce {
+      0%, 100% { transform: translateY(0) rotate(-10deg); }
+      50%       { transform: translateY(-6px) rotate(10deg); }
     }
     .video-hint {
       color: #fff;
@@ -863,7 +867,7 @@
       <div class="video-overlay">
         <div class="video-play-bubble">
           <div class="video-play-bubble-inner">
-            <div class="video-play-icon">▶</div>
+            <div class="video-play-icon">👆</div>
             <p class="video-hint">Нажмите для просмотра</p>
           </div>
         </div>
@@ -980,7 +984,7 @@
       <div class="video-overlay">
         <div class="video-play-bubble">
           <div class="video-play-bubble-inner">
-            <div class="video-play-icon">▶</div>
+            <div class="video-play-icon">👆</div>
             <p class="video-hint">Нажмите для просмотра</p>
           </div>
         </div>
