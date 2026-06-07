@@ -50,15 +50,50 @@
       transform: translateY(0);
     }
 
-    /* ── PLACEHOLDER BOXES ── */
+    /* ── PHOTO BOXES ── */
     .placeholder {
       border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
+      overflow: hidden;
       aspect-ratio: 4/3;
       width: 100%;
+      display: block;
+    }
+    .placeholder img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+    }
+    /* hero photo fills full column */
+    .hero-photo .placeholder {
+      border-radius: 0;
+      aspect-ratio: unset;
+      height: 100%;
+    }
+    .hero-photo .placeholder img {
+      border-radius: 0;
+      height: 100%;
+    }
+    /* story blob with real photo */
+    .story-blob {
+      overflow: hidden;
+    }
+    .story-blob img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* polaroid inner photo */
+    .polaroid-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+    /* elderly photo grid */
+    .emoji-cell img {
+      width: 70%; height: 70%;
+      object-fit: cover;
+      border-radius: 50%;
     }
 
     /* ── BUTTONS ── */
@@ -703,7 +738,9 @@
 <section id="hero">
   <!-- Left: photo placeholder -->
   <div class="hero-photo">
-    <div class="placeholder" style="background:#c8f0c8;">🧒🐹</div>
+    <div class="placeholder">
+      <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4a?auto=format&fit=crop&w=900&q=85" alt="Ребёнок с животным" />
+    </div>
   </div>
 
   <!-- Right: content -->
@@ -743,7 +780,9 @@
     </div>
     <!-- Right: placeholder -->
     <div>
-      <div class="placeholder" style="background:#2d9090; color:#fff;">🐎</div>
+      <div class="placeholder">
+        <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=85" alt="Терапия с лошадьми" />
+      </div>
     </div>
   </div>
 </section>
@@ -755,7 +794,9 @@
   <div class="inner two-col reveal">
     <!-- Left: placeholder -->
     <div>
-      <div class="placeholder" style="background:#e8b820;">🤝</div>
+      <div class="placeholder">
+        <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=800&q=85" alt="Волонтёры с детьми" />
+      </div>
     </div>
     <!-- Right: text + cards -->
     <div>
@@ -788,17 +829,23 @@
     <h2 class="reveal">Нам есть чем помочь</h2>
     <div class="stories-grid">
       <div class="story-card reveal">
-        <div class="story-blob">🐴</div>
+        <div class="story-blob">
+          <img src="https://images.unsplash.com/photo-1518020382113-a7ef8d3f65a0?auto=format&fit=crop&w=200&q=80" alt="Ребёнок с лошадью" />
+        </div>
         <h3>Мы делаем все возможное</h3>
         <p>К нам привели ребёнка с церебральным параличом, который не мог говорить. Всего через несколько занятий с лошадьми он произнёс слово «лошадка», а после шести – его речь стала более отчётливой. Но потом, к сожалению, его встречи с животными пришлось прекратить по состоянию здоровья.</p>
       </div>
       <div class="story-card reveal">
-        <div class="story-blob">🌸</div>
+        <div class="story-blob">
+          <img src="https://images.unsplash.com/photo-1449182325215-d517de72c42d?auto=format&fit=crop&w=200&q=80" alt="Девочка верхом на лошади" />
+        </div>
         <h3>Улучшаем когнитивные показатели</h3>
         <p>Одна девочка с синдромом дауна начала заниматься у нас иппотерапией. Уже через 20 занятий учительница отметила явные изменения в поведении: малышка стала увереннее себя вести, у неё появилась горделивая осанка. Девочка ответила: «Я занимаюсь верховой ездой. И чтобы лошадка меня слушалась, я должна быть лидером, а лидеры не горбятся!»</p>
       </div>
       <div class="story-card reveal">
-        <div class="story-blob">💛</div>
+        <div class="story-blob">
+          <img src="https://images.unsplash.com/photo-1546961342-ea5f73265c66?auto=format&fit=crop&w=200&q=80" alt="Счастливая девочка" />
+        </div>
         <h3>Учим детей не бояться лечиться</h3>
         <p>Мама привела к нам маленькую Т. после того, как она наотрез отказалась делать глазную операцию. На занятиях мы вместе с Т. помогли лошадке вылечить глазки. Уже на следующем занятии девочка сказала, что согласна оперироваться и совершенно не боится.</p>
       </div>
@@ -813,11 +860,8 @@
   <div class="inner two-col reveal">
     <!-- Left: placeholder with decorations -->
     <div class="donate-left">
-      <div class="donate-placeholder">
-        🐴❤️
-        <div class="float-deco" style="top:-16px;right:-16px;">✳️</div>
-        <div class="float-deco" style="bottom:-16px;left:-10px;animation-delay:.8s;">✳️</div>
-        <div class="float-deco" style="top:50%;left:-20px;animation-delay:1.4s;">✳️</div>
+      <div class="placeholder">
+        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=85" alt="Ребёнок с лошадью" />
       </div>
     </div>
     <!-- Right: text -->
@@ -850,7 +894,9 @@
     </div>
     <!-- Right: placeholder -->
     <div>
-      <div class="placeholder" style="background:#c8960a;">🐣</div>
+      <div class="placeholder">
+        <img src="https://images.unsplash.com/photo-1554726611-3bf1a2c6e03c?auto=format&fit=crop&w=800&q=85" alt="Лошадь на ферме" />
+      </div>
     </div>
   </div>
 </section>
@@ -908,15 +954,15 @@
     <!-- Right: 3×3 emoji grid -->
     <div>
       <div class="emoji-grid">
-        <div class="emoji-cell">😺</div>
-        <div class="emoji-cell">👩‍🦳</div>
-        <div class="emoji-cell">🐰</div>
-        <div class="emoji-cell">🤗</div>
-        <div class="emoji-cell">🐦</div>
-        <div class="emoji-cell">🌻</div>
-        <div class="emoji-cell">🐈</div>
-        <div class="emoji-cell">👴</div>
-        <div class="emoji-cell">🌿</div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1447968954315-4a57db17e6a3?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1499344394892-3d16c053efd6?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="emoji-cell" style="padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1548767797-d8c844163c4a?auto=format&fit=crop&w=200&h=200&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" /></div>
       </div>
     </div>
   </div>
@@ -930,7 +976,9 @@
   <div class="contact-left reveal">
     <h2>Присоединяйтесь к нам</h2>
     <div class="polaroid">
-      <div class="polaroid-inner">👨‍👩‍👧‍👦</div>
+      <div class="polaroid-inner">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=300&q=80" alt="Дети вместе" />
+      </div>
     </div>
   </div>
   <!-- Right: yellow -->
