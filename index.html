@@ -6,18 +6,7 @@
   <title>Фонд «Хает Мерапот» חיות מרפאות</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" href="logo.png" />
-  <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'ru',
-      includedLanguages: 'he,en',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <style>
+<style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -655,34 +644,6 @@
       filter: none;
     }
 
-    /* ── GOOGLE TRANSLATE WIDGET ── */
-    body { top: 0 !important; }
-    .goog-te-banner-frame { display: none !important; }
-    #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-
-    #google_translate_element .goog-te-gadget-simple {
-      background: transparent !important;
-      border: 1.5px solid var(--teal) !important;
-      border-radius: 50px !important;
-      padding: .28rem .85rem !important;
-      font-family: 'Nunito', sans-serif !important;
-      font-size: .82rem !important;
-      font-weight: 700 !important;
-      cursor: pointer !important;
-    }
-    #google_translate_element .goog-te-gadget-simple,
-    #google_translate_element .goog-te-gadget-simple span,
-    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
-      color: var(--teal) !important;
-      font-family: 'Nunito', sans-serif !important;
-      font-size: .82rem !important;
-      font-weight: 700 !important;
-      text-decoration: none !important;
-      border: none !important;
-    }
-    /* hide google logo and arrow */
-    #google_translate_element .goog-te-gadget-simple img { display: none !important; }
-    #google_translate_element .goog-te-gadget-simple span[style] { display: none !important; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -731,7 +692,6 @@
       <li><a href="#stories">Истории</a></li>
       <li><a href="privacy.html">Конфиденциальность</a></li>
       <li><a href="terms.html">Условия</a></li>
-      <li><div id="google_translate_element"></div></li>
       <li class="nav-cta"><a href="#donate-section">💛 Пожертвовать</a></li>
     </ul>
   </div>
@@ -1102,9 +1062,6 @@
     a.addEventListener('click', () => headerNav.classList.remove('open'));
   });
 
-  /* Keep banner suppressed if Google injects it dynamically */
-  new MutationObserver(() => { document.body.style.top = '0'; })
-    .observe(document.body, { attributes: true, attributeFilter: ['style'] });
 
   /* observe stat cards specifically */
   document.querySelectorAll('.stat-card').forEach(card => {
