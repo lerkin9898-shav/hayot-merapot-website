@@ -773,8 +773,8 @@
       animation: fingerBounce 0.8s ease-in-out infinite;
     }
     @keyframes fingerBounce {
-      0%, 100% { transform: translateY(0) rotate(-10deg); }
-      50%       { transform: translateY(-6px) rotate(10deg); }
+      0%, 100% { transform: translateX(0); }
+      50%       { transform: translateX(6px); }
     }
     .video-hint {
       color: #fff;
@@ -867,7 +867,7 @@
       <div class="video-overlay">
         <div class="video-play-bubble">
           <div class="video-play-bubble-inner">
-            <div class="video-play-icon">👆</div>
+            <div class="video-play-icon">👉</div>
             <p class="video-hint">Нажмите для просмотра</p>
           </div>
         </div>
@@ -984,7 +984,7 @@
       <div class="video-overlay">
         <div class="video-play-bubble">
           <div class="video-play-bubble-inner">
-            <div class="video-play-icon">👆</div>
+            <div class="video-play-icon">👉</div>
             <p class="video-hint">Нажмите для просмотра</p>
           </div>
         </div>
